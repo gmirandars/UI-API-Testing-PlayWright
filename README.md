@@ -1,2 +1,2 @@
-# UI-Testing---PlayWright
+# UI-Testing-PlayWright
 Simple UI Testing using Playwright
