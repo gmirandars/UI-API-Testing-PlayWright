@@ -100,8 +100,8 @@ test('User can log in successfully', async ({ page }) => {
 ## ⚙️ Setup & Installation
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-cd YOUR-REPOSITORY
+git clone https://github.com/gmirandars/UITesting-PlayWright.git
+cd UITesting-PlayWright
 npm ci
 npx playwright install --with-deps
 ```
