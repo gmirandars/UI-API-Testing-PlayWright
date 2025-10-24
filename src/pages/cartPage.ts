@@ -36,6 +36,6 @@ export class CartPage {
    */
   async goToCheckout() {
     await this.checkoutButton.click();
-    await this.page.waitForURL('**/checkout-step-one.html');
+    await this.page.waitForURL('/checkout-step-one.html');
   }
 }

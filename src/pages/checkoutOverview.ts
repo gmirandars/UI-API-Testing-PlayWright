@@ -27,6 +27,6 @@ export class CheckoutStepTwoPage {
    */
   async finishCheckout() {
     await this.finishButton.click();
-    await this.page.waitForURL('**/checkout-complete.html');
+    await this.page.waitForURL('/checkout-complete.html');
   }
 }

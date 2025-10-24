@@ -46,6 +46,6 @@ export class CheckoutStepOnePage {
   async expectErrorMessage(expectedMessage: string) {
     await expect(this.errorMessage).toBeVisible();
     await expect(this.errorMessage).toContainText(expectedMessage);
-    await expect(this.page).toHaveURL('**/checkout-step-one.html');
+    await expect(this.page).toHaveURL('/checkout-step-one.html');
   }
 }

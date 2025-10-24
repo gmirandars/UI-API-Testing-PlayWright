@@ -1,6 +1,5 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test'; // <-- Importa o 'expect'
 import { InventoryPage } from '../src/pages/InventoryPage';
-
 import { CartPage } from '../src/pages/cartPage';
 import { CheckoutCompletePage } from '../src/pages/checkoutCompletePage';
 import { CheckoutStepOnePage } from '../src/pages/checkoutInformationPage';
@@ -28,15 +27,16 @@ test.beforeEach(async ({ page }) => {
   checkoutStepOne = new CheckoutStepOnePage(page);
   checkoutStepTwo = new CheckoutStepTwoPage(page);
   checkoutComplete = new CheckoutCompletePage(page);
+  await page.goto('/inventory.html');
+  await inventoryPage.addItemToCart(product);
+  await inventoryPage.goToCart();
+  await cartPage.expectItemInCart(product);
+  await cartPage.goToCheckout();
+  await expect(page).toHaveURL('/checkout-step-one.html');
 });
 
 test.describe('E2E Checkout Flow', () => {
   test('should allow a user to purchase an item', async () => {
-    await inventoryPage.expectTitleToBeVisible();
-    await inventoryPage.addItemToCart(product);
-    await inventoryPage.goToCart();
-    await cartPage.expectItemInCart(product);
-    await cartPage.goToCheckout();
     await checkoutStepOne.fillShippingInfo(
       clientInfo.firstName,
       clientInfo.lastName,

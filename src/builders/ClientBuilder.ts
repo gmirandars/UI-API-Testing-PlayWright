@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker/.';
+import { faker } from '@faker-js/faker';
 import { Builder } from 'builder-pattern';
 import { ClientInfo } from '../interfaces';
 
