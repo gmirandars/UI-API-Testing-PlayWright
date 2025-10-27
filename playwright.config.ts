@@ -13,7 +13,7 @@ export default defineConfig({
   },
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'playwright-report' }]],
 
-  globalSetup: require.resolve('./src/setup/global.setup.ts'),
+  globalSetup: require.resolve('./src/setup/Global.setup.ts'),
   use: {
     baseURL: 'https://www.saucedemo.com/',
     storageState: AUTH_FILE,
