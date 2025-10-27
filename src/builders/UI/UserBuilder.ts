@@ -1,7 +1,7 @@
 import { Builder } from 'builder-pattern';
-import { UserData } from '../interfaces';
+import { UserData } from '../../interfaces/UI';
 
-export class userBuilder {
+export class UserBuilder {
   public static buildValidUser() {
     return Builder<UserData>()
       .userName('standard_user')

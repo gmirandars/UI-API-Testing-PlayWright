@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { Builder } from 'builder-pattern';
-import { ClientInfo } from '../interfaces';
+import { ClientInfo } from '../../interfaces/UI';
 
 export class clientBuilder {
   public static buildClient() {

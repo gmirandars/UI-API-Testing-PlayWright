@@ -13,7 +13,7 @@ export default defineConfig({
   },
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'playwright-report' }]],
 
-  globalSetup: require.resolve('./src/setup/global.setup.ts'),
+  globalSetup: require.resolve('./src/setup/Global.setup.ts'),
   use: {
     baseURL: 'https://www.saucedemo.com/',
     storageState: AUTH_FILE,
@@ -26,23 +26,39 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      testIgnore: /login\.spec\.ts/,
+      testMatch: /UI\/.*\.spec\.ts/,
+      testIgnore: /UI\/Login\.spec\.ts/,
     },
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-      testIgnore: /login\.spec\.ts/,
+      testMatch: /UI\/.*\.spec\.ts/,
+      testIgnore: /UI\/Login\.spec\.ts/,
     },
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-      testIgnore: /login\.spec\.ts/,
+      testMatch: /UI\/.*\.spec\.ts/,
+      testIgnore: /UI\/Login\.spec\.ts/,
     },
     {
       name: 'setup',
-      testMatch: /login\.spec\.ts/,
+      testMatch: /UI\/Login\.spec\.ts/,
       use: {
         storageState: undefined,
+      },
+    },
+    {
+      name: 'api-tests',
+      testMatch: /API\/.*\.spec\.ts/,
+      testIgnore: /UI\/.*\.spec\.ts/,
+      use: {
+        baseURL: 'https://reqres.in/api',
+        storageState: undefined,
+        extraHTTPHeaders: { 'x-api-key': 'reqres-free-v1' },
+        screenshot: 'off',
+        video: 'off',
+        trace: 'off',
       },
     },
   ],

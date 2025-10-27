@@ -1,8 +1,8 @@
-import { userBuilder } from '../src/builders/UserBuilder';
-import { UserData } from '../src/interfaces';
-import { InventoryPage } from '../src/pages/InventoryPage';
-import { LoginPage } from '../src/pages/loginPage';
 import { test } from '@playwright/test';
+import { UserBuilder } from '../../src/builders/UI/UserBuilder';
+import { UserData } from '../../src/interfaces/UI';
+import { InventoryPage } from '../../src/pages/InventoryPage';
+import { LoginPage } from '../../src/pages/LoginPage';
 
 test.describe('Login Feature', () => {
   let loginPage: LoginPage;
@@ -12,9 +12,9 @@ test.describe('Login Feature', () => {
   let invalidUserData: UserData;
 
   test.beforeAll(async () => {
-    validUserData = userBuilder.buildValidUser();
-    lockedUserData = userBuilder.buildLockedUser();
-    invalidUserData = userBuilder.buildInvalidPasswordUser();
+    validUserData = UserBuilder.buildValidUser();
+    lockedUserData = UserBuilder.buildLockedUser();
+    invalidUserData = UserBuilder.buildInvalidPasswordUser();
   });
 
   test.beforeEach(async ({ page }) => {

@@ -1,19 +1,18 @@
-# Playwright & TypeScript E2E Test Automation Framework
+# Playwright & TypeScript API And E2E Test Automation Framework
 
-![CI](https://img.shields.io/github/actions/workflow/status/gmirandars/UITesting-PlayWright/playwright.yml?label=CI/CD&logo=github)
+![CI](https://img.shields.io/github/actions/workflow/status/gmirandars/UI-API-Testing-PlayWright/playwright.yml?label=CI/CD&logo=github)
 ![Lint](https://img.shields.io/badge/code%20quality-ESLint%20%26%20Prettier-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
 
-This repository serves as a professional portfolio project, demonstrating a robust End-to-End (E2E) test automation framework built with Playwright and TypeScript. It showcases modern best practices in UI automation, including the Page Object Model (POM), a robust code quality setup (ESLint, Prettier, Husky), and a complete CI/CD pipeline using GitHub Actions.
+This repository serves as a professional portfolio project, demonstrating a robust End-to-End (E2E) test automation framework built with Playwright and TypeScript. It showcases modern best practices in UI and API automation, including the Page Object Model (POM), a robust code quality setup (ESLint, Prettier, Husky), and a complete CI/CD pipeline using GitHub Actions.
 
-The target application for this automation suite is **SauceDemo**, a live e-commerce demonstration website.
+The target application for this automation suite is **SauceDemo** for UI and **Reqres** for API testing.
 
 ## 🚀 Key Features
 
-- **Modern Framework**: Playwright for fast, reliable, cross-browser testing (Chromium, Firefox, WebKit).
+- **Modern Framework**: Playwright for fast, reliable, cross-browser, api testing (Chromium, Firefox, WebKit).
 - **TypeScript**: 100% strongly typed codebase for enhanced maintainability and reliability.
 - **Page Object Model (POM)**: Clean, scalable architecture following SOLID and DRY principles.
-- **Advanced Authentication Strategy**: Uses `global.setup.ts` to log in once and reuse authentication state.
 - **Guaranteed Code Quality**:
   - ESLint & Prettier
   - Husky & lint-staged
@@ -35,24 +34,27 @@ The target application for this automation suite is **SauceDemo**, a live e-comm
 
 ```bash
 project-playwright/
-├── .github/workflows/      # CI/CD Pipeline
+├── .github/workflows/
 │   └── playwright.yml
-├── .husky/                 # Git Hooks
+├── .husky/
 │   └── pre-commit
 ├── src/
 │   │── builders/
-│   │   ├── builders...
+│   │   ├── API
+│   │   ├── UI
 │   │── data/
-│   │   ├── providers...
+│   │   ├── UI
+│   │   ├── API
 │   │── interfaces/
-│   │   ├── index.ts
-│   ├── pages/              # Page Object Model (POM)
+│   │   ├── API.ts
+│   │   ├── UI.ts
+│   ├── pages/
 │   │   ├── pages...
-│   └── setup/
-│       └── global.setup.ts # Authentication reused across tests
-├── tests/                  # Test Suites
-│   ├── login.spec.ts
-│   └── checkout.spec.ts
+│   ├── setup/
+│   │   ├── Global.setup.ts
+├── tests/
+│   ├── API
+│   └── UI
 ├── playwright.config.ts    # Playwright configuration
 ├── package.json            # Scripts and dependencies
 ├── tsconfig.json           # TypeScript configuration
@@ -100,8 +102,8 @@ test('User can log in successfully', async ({ page }) => {
 ## ⚙️ Setup & Installation
 
 ```bash
-git clone https://github.com/gmirandars/UITesting-PlayWright.git
-cd UITesting-PlayWright
+git clone https://github.com/gmirandars/UI-API-Testing-PlayWright.git
+cd YOUR-REPOSITORY
 npm ci
 npx playwright install --with-deps
 ```

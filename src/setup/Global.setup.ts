@@ -1,5 +1,5 @@
 import { chromium, type FullConfig } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
+import { LoginPage } from '../pages/LoginPage';
 
 /**
  * This setup runs once before all tests.

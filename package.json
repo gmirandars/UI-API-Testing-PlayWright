@@ -12,7 +12,8 @@
     ]
   },
   "scripts": {
-    "test": "npx playwright test",
+    "ui-test": "npx playwright test --project=chromium",
+    "api-test": "npx playwright test --project=api-tests",
     "lint": "eslint . --ext .ts --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
