@@ -1,5 +1,5 @@
 import { Builder } from 'builder-pattern';
-import { UserData } from '../interfaces';
+import { UserData } from '../../interfaces/UI';
 
 export class userBuilder {
   public static buildValidUser() {

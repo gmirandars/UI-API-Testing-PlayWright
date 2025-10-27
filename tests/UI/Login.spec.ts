@@ -1,8 +1,9 @@
-import { userBuilder } from '../src/builders/UserBuilder';
-import { UserData } from '../src/interfaces';
-import { InventoryPage } from '../src/pages/InventoryPage';
-import { LoginPage } from '../src/pages/loginPage';
+import { userBuilder } from '../../src/builders/UI/UserBuilder';
+import { UserData } from '../../src/interfaces/UI';
+import { InventoryPage } from '../../src/pages/InventoryPage';
+
 import { test } from '@playwright/test';
+import { LoginPage } from '../../src/pages/LoginPage';
 
 test.describe('Login Feature', () => {
   let loginPage: LoginPage;

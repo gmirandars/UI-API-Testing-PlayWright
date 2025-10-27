@@ -1,6 +1,6 @@
 // src/pages/CartPage.ts
 import { type Page, type Locator, expect } from '@playwright/test';
-import { Product } from '../interfaces';
+import { Product } from '../interfaces/UI';
 
 /**
  * Represents the Shopping Cart Page.

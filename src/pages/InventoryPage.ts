@@ -1,7 +1,7 @@
 // src/pages/InventoryPage.ts
 
 import { type Page, type Locator, expect } from '@playwright/test';
-import { Product } from '../interfaces';
+import { Product } from '../interfaces/UI';
 
 /**
  * Represents the SauceDemo Inventory (Products) Page.
