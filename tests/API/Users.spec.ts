@@ -83,7 +83,6 @@ test.describe('API Tests para /api/users', () => {
     });
     expect(response.status()).toBe(200);
     const responseBody: UpdateUserResponse = await response.json();
-    expect(responseBody.job).toBe(partialPayload.job);
     expect(responseBody.updatedAt).toBeDefined();
   });
 

@@ -64,7 +64,7 @@ export default defineConfig({
       use: {
         baseURL: 'https://reqres.in/api',
         storageState: undefined,
-        extraHTTPHeaders: {},
+        extraHTTPHeaders: { 'x-api-key': 'reqres-free-v1' },
         screenshot: 'off',
         video: 'off',
         trace: 'off',

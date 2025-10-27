@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test'; // <-- Importa o 'expect'
-import { InventoryPage } from '../../src/pages/InventoryPage';
+import { clientBuilder } from '../../src/builders/UI/ClientBuilder';
+import { PRODUCTS } from '../../src/data/UI/Products';
+import { ClientInfo, Product } from '../../src/interfaces/UI';
 import { CartPage } from '../../src/pages/CartPage';
 import { CheckoutCompletePage } from '../../src/pages/CheckoutCompletePage';
 import { CheckoutStepOnePage } from '../../src/pages/CheckoutInformationPage';
 import { CheckoutStepTwoPage } from '../../src/pages/CheckoutOverview';
-import { ClientInfo, Product } from '../../src/interfaces/UI';
-import { clientBuilder } from '../../src/builders/UI/ClientBuilder';
-import { PRODUCTS } from '../../src/data/UI/Products';
+import { InventoryPage } from '../../src/pages/InventoryPage';
 
 let inventoryPage: InventoryPage;
 let cartPage: CartPage;
