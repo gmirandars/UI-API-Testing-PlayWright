@@ -50,6 +50,8 @@ project-playwright/
 │   │   ├── UI.ts
 │   ├── pages/
 │   │   ├── pages...
+│   ├── setup/
+│   │   ├── Global.setup.ts
 ├── tests/
 │   ├── API
 │   └── UI

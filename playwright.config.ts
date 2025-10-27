@@ -13,54 +13,45 @@ export default defineConfig({
   },
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'playwright-report' }]],
 
-  use: {},
+  globalSetup: require.resolve('./src/setup/global.setup.ts'),
+  use: {
+    baseURL: 'https://www.saucedemo.com/',
+    storageState: AUTH_FILE,
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'on-first-retry',
+  },
 
   projects: [
     {
       name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'https://www.saucedemo.com/',
-        storageState: AUTH_FILE,
-        trace: 'on-first-retry',
-        screenshot: 'only-on-failure',
-        video: 'on-first-retry',
-      },
+      use: { ...devices['Desktop Chrome'] },
       testMatch: /UI\/.*\.spec\.ts/,
       testIgnore: /UI\/Login\.spec\.ts/,
-      dependencies: ['setup'],
     },
     {
       name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'https://www.saucedemo.com/',
-        storageState: AUTH_FILE,
-        trace: 'on-first-retry',
-        screenshot: 'only-on-failure',
-        video: 'on-first-retry',
-      },
+      use: { ...devices['Desktop Firefox'] },
       testMatch: /UI\/.*\.spec\.ts/,
       testIgnore: /UI\/Login\.spec\.ts/,
-      dependencies: ['setup'],
     },
     {
       name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'https://www.saucedemo.com/',
-        storageState: AUTH_FILE,
-        trace: 'on-first-retry',
-        screenshot: 'only-on-failure',
-        video: 'on-first-retry',
-      },
+      use: { ...devices['Desktop Safari'] },
       testMatch: /UI\/.*\.spec\.ts/,
       testIgnore: /UI\/Login\.spec\.ts/,
-      dependencies: ['setup'],
+    },
+    {
+      name: 'setup',
+      testMatch: /UI\/Login\.spec\.ts/,
+      use: {
+        storageState: undefined,
+      },
     },
     {
       name: 'api-tests',
       testMatch: /API\/.*\.spec\.ts/,
+      testIgnore: /UI\/.*\.spec\.ts/,
       use: {
         baseURL: 'https://reqres.in/api',
         storageState: undefined,
@@ -69,19 +60,6 @@ export default defineConfig({
         video: 'off',
         trace: 'off',
       },
-    },
-    {
-      name: 'setup',
-      testMatch: /UI\/Login\.spec\.ts/,
-      use: {
-        baseURL: 'https://www.saucedemo.com/',
-        storageState: undefined,
-      },
-      teardown: 'cleanup auth',
-    },
-    {
-      name: 'cleanup auth',
-      testMatch: /global\.teardown\.ts/,
     },
   ],
   outputDir: 'test-results/',
